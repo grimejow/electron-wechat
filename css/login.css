@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: azure;
+}
+
+header {
+    overflow: hidden;
+}
+
+.btn {
+    position: fixed;
+    top: 1px;
+    color: aliceblue;
+    font-size: 35px;
+    letter-spacing: 15px;
+    width: 100%;
+    height: 40px;
+    background-color: rgb(65, 65, 58);
+    text-align: right;
+    line-height: 40px;
+    opacity: 0.5;
+}
+
+#close-win:hover {
+    color: white;
+}
+
+#min-win:hover {
+    color: white;
+}
+
+section {
+    /* background-color: azure; */
+    height: 200px;
+    width: 100%;
+    position: relative;
+}
+
+.imgself {
+    position: absolute;
+    top: 50px;
+    left: 70px;
+    width: 100px;
+    height: 100px;
+}
+
+.keng {
+    width: 100%;
+    height: 50px;
+    /* background-color: azure; */
+}
+
+form {
+    width: 250px;
+    height: 150px;
+    margin-left: 180px;
+}
+
+.rem {
+    /* width: 100px; */
+    margin-left: 40px;
+}
+
+footer {
+    text-align: center;
+    font-size: 30px;
+    /* background-color: azure; */
+}
+
+#login {
+    color: bisque;
+    background-color: cornflowerblue;
+}

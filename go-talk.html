@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/talk.css">
+    <script src="js/vue-1.0.js"></script>
+    <script src="js/vue-router-0.7.13.js"></script>
+
+
+</head>
+
+<body>
+    <div class="main" id="app">
+        <div class="nav-left">
+            <div class="head"><img src="img/self.png" alt=""></div>
+            <div class="head">
+                <a class="nav-a"><img class="nav-icon" src="img/nav1.png" alt=""></a>
+            </div>
+            <div class="head">
+                <a class="nav-a"><img class="nav-icon" src="img/nav2.png" alt=""></a>
+            </div>
+            <div class="head set">
+                <a class="nav-a"><img class="nav-icon" src="img/set.png" alt=""></a>
+            </div>
+            <!-- <router-view></router-view> -->
+        </div>
+        <!-- <template id="chat" class="chat1"> -->
+        <div id="chat" class="chat zindex2">
+            <div class="friend-list">
+                <div class="add-friend">
+                    <input id="friend-id" type="text" placeholder="输入好友id" v-model="addTodoText" v-on:keyup.enter="addNewTodo">
+                    <button type="button" id="add" class="btn-primary btn-sm" v-on:click="addNewTodo">+</button>
+                </div>
+                <div class="left-items">{{count}}个好友</div>
+                <div class="my-friend">
+                    <ul class="friend-list-bottom" v-show="todos.length">
+                        <li tabindex="1" v-for="(index,todo) in todos" v-on:click="changeName(todo)">
+                            <div class="friend-head"><img v-bind:src="url[index]" alt="这是头像"></div>
+                            <div class="friend-name"><span>{{todo.title}}</span><button class="btn-warning del" v-on:click="removeTodo(todo)">删除</button></div>
+
+                            <!-- <span class="del" v-on:click="removeTodo(todo)">X</span> -->
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+            <div class="chat-window" v-show="todos.length">
+                <div class="chat-friend-head">
+                    <div class="circle-head"><img v-bind:src="url[clickIndex]" alt=""></div>
+                </div>
+                <div class="chat-friend-name">{{chatingName}}</div>
+                <div class="video-audio"><button class="audio-btn"></button><button class="video-btn"></button></div>
+                <div class="video-audio-name"><span>语音通话</span><span>视频通话</span></div>
+            </div>
+        </div>
+
+        <!-- </template> -->
+
+        <div id="collect-list" class="collect-list chat">
+            <div class="collect-nav friend-list">
+                <ul class="collect-left">
+                    <li tabindex="1"><img src="img/collect.png" alt=""><span>收藏</span></li>
+                    <li tabindex="1"><img src="img/album.png" alt=""><span>相册</span></li>
+                    <li tabindex="1"><img src="img/note.png" alt=""><span>笔记</span></li>
+                    <li tabindex="1"><img src="img/file.png" alt=""><span>文件</span></li>
+                </ul>
+            </div>
+            <div class="collect-show chat-window">
+                <div class="collect-show-right" style="z-index:2">
+                    <div class="collect-show-top">收藏</div>
+                    <div class="collect-show-bottom">这是收藏</div>
+                </div>
+                <div class="collect-show-right">
+                    <div class="collect-show-top">相册</div>
+                    <div class="collect-show-bottom">这是相册</div>
+                </div>
+                <div class="collect-show-right">
+                    <div class="collect-show-top">笔记</div>
+                    <div class="collect-show-bottom">这是笔记</div>
+                </div>
+                <div class="collect-show-right">
+                    <div class="collect-show-top">文件</div>
+                    <div class="collect-show-bottom">这是文件</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="set-list" class="set-list chat">
+            <div class="set-nav friend-list">
+                <ul class="set-left collect-left">
+                    <li tabindex="1"><span>帐号设置</span></li>
+                    <li tabindex="1"><span>通用设置</span></li>
+                    <li tabindex="1"><span>快捷设置</span></li>
+                    <li tabindex="1"><span>版本更新</span></li>
+                </ul>
+            </div>
+            <div class="set-show chat-window">
+                <div class="collect-show-right set-show-right" style="z-index:2">
+
+                    <div class="collect-show-bottom set-show-bottom">这是帐号设置
+                        <button id="quit-login" class="btn-lg btn-success">退出登录</button>
+                    </div>
+                </div>
+                <div class="collect-show-right set-show-right">
+
+                    <div class="collect-show-bottom set-show-bottom">这是通用设置</div>
+                </div>
+                <div class="collect-show-right set-show-right">
+
+                    <div class="collect-show-bottom set-show-bottom">这是快捷设置</div>
+                </div>
+                <div class="collect-show-right set-show-right">
+
+                    <div class="collect-show-bottom set-show-bottom">这是版本更新</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/talk.js"></script>
+    <script>
+        require('./renderer-process/quit-login.js')
+    </script>
+</body>
+
+</html>
